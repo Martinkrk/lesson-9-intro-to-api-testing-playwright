@@ -60,8 +60,8 @@ test('put order with correct data and id should receive code 200', async ({ requ
 })
 
 test('put order with correct data and incorrect id should receive code 400', async ({
-                                                                                      request,
-                                                                                    }) => {
+  request,
+}) => {
   const header = {
     api_key: `1234567890123456`,
   }
@@ -78,8 +78,8 @@ test('put order with correct data and incorrect id should receive code 400', asy
 })
 
 test('put order with number type data and correct id should receive code 200', async ({
-                                                                                        request,
-                                                                                      }) => {
+  request,
+}) => {
   const header = {
     api_key: `1234567890123456`,
   }
