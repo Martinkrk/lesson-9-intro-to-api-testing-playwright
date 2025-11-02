@@ -105,9 +105,9 @@ test("Create a loan with a very high risk", async ({ request }) => {
   const responseData: LoanSuccessResponse = await response.json();
   const validatedResponse = validate(responseData);
 
-    expect.soft(validatedResponse).toBeTruthy();
-    expect.soft(responseData.riskLevel).toBe("Very High Risk");
-    expect.soft(responseData.riskDecision).toBe("negative");
+  expect.soft(validatedResponse).toBeTruthy();
+  expect.soft(responseData.riskLevel).toBe("Very High Risk");
+  expect.soft(responseData.riskDecision).toBe("negative");
 });
 
 test("Create a loan with an income of zero", async ({ request }) => {
@@ -117,7 +117,7 @@ test("Create a loan with an income of zero", async ({ request }) => {
   const requestBody = LoanDTO.createRandomLoan();
   requestBody.income = 0;
 
-    const response = await request.post(BASE_URL, { data: requestBody, headers });
+  const response = await request.post(BASE_URL, { data: requestBody, headers });
 
   expect.soft(response.status()).toBe(StatusCodes.BAD_REQUEST);
 });
