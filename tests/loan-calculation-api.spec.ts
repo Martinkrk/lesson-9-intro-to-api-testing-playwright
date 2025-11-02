@@ -25,17 +25,14 @@ test("Create a loan with a low risk", async ({ request }) => {
 
   const response = await request.post(BASE_URL, { data: requestBody, headers });
 
-  const isOK: boolean = response.status() === StatusCodes.OK;
-  expect.soft(isOK).toBeTruthy();
+  expect(response.status()).toBe(StatusCodes.OK);
 
-  if (isOK) {
-    const responseData: LoanSuccessResponse = await response.json();
-    const validatedResponse = validate(responseData);
+  const responseData: LoanSuccessResponse = await response.json();
+  const validatedResponse = validate(responseData);
 
-    expect.soft(validatedResponse).toBeTruthy();
-    expect.soft(responseData.riskLevel).toBe("Low Risk");
-    expect.soft(responseData.riskDecision).toBe("positive");
-  }
+  expect.soft(validatedResponse).toBeTruthy();
+  expect.soft(responseData.riskLevel).toBe("Low Risk");
+  expect.soft(responseData.riskDecision).toBe("positive");
 });
 
 test("Create a loan with a medium risk", async ({ request }) => {
@@ -53,17 +50,14 @@ test("Create a loan with a medium risk", async ({ request }) => {
 
   const response = await request.post(BASE_URL, { data: requestBody, headers });
 
-  const isOK: boolean = response.status() === StatusCodes.OK;
-  expect.soft(isOK).toBeTruthy();
+  expect(response.status()).toBe(StatusCodes.OK);
 
-  if (isOK) {
-    const responseData: LoanSuccessResponse = await response.json();
-    const validatedResponse = validate(responseData);
+  const responseData: LoanSuccessResponse = await response.json();
+  const validatedResponse = validate(responseData);
 
-    expect.soft(validatedResponse).toBeTruthy();
-    expect.soft(responseData.riskLevel).toBe("Medium Risk");
-    expect.soft(responseData.riskDecision).toBe("positive");
-  }
+  expect.soft(validatedResponse).toBeTruthy();
+  expect.soft(responseData.riskLevel).toBe("Medium Risk");
+  expect.soft(responseData.riskDecision).toBe("positive");
 });
 
 test("Create a loan with a high risk", async ({ request }) => {
@@ -81,17 +75,14 @@ test("Create a loan with a high risk", async ({ request }) => {
 
   const response = await request.post(BASE_URL, { data: requestBody, headers });
 
-  const isOK: boolean = response.status() === StatusCodes.OK;
-  expect.soft(isOK).toBeTruthy();
+  expect(response.status()).toBe(StatusCodes.OK);
 
-  if (isOK) {
-    const responseData: LoanSuccessResponse = await response.json();
-    const validatedResponse = validate(responseData);
+  const responseData: LoanSuccessResponse = await response.json();
+  const validatedResponse = validate(responseData);
 
-    expect.soft(validatedResponse).toBeTruthy();
-    expect.soft(responseData.riskLevel).toBe("High Risk");
-    expect.soft(responseData.riskDecision).toBe("positive");
-  }
+  expect.soft(validatedResponse).toBeTruthy();
+  expect.soft(responseData.riskLevel).toBe("High Risk");
+  expect.soft(responseData.riskDecision).toBe("positive");
 });
 
 test("Create a loan with a very high risk", async ({ request }) => {
@@ -109,17 +100,14 @@ test("Create a loan with a very high risk", async ({ request }) => {
 
   const response = await request.post(BASE_URL, { data: requestBody, headers });
 
-  const isOK: boolean = response.status() === StatusCodes.OK;
-  expect.soft(isOK).toBeTruthy();
+  expect(response.status()).toBe(StatusCodes.OK);
 
-  if (isOK) {
-    const responseData: LoanSuccessResponse = await response.json();
-    const validatedResponse = validate(responseData);
+  const responseData: LoanSuccessResponse = await response.json();
+  const validatedResponse = validate(responseData);
 
     expect.soft(validatedResponse).toBeTruthy();
     expect.soft(responseData.riskLevel).toBe("Very High Risk");
     expect.soft(responseData.riskDecision).toBe("negative");
-  }
 });
 
 test("Create a loan with an income of zero", async ({ request }) => {
@@ -129,7 +117,7 @@ test("Create a loan with an income of zero", async ({ request }) => {
   const requestBody = LoanDTO.createRandomLoan();
   requestBody.income = 0;
 
-  const response = await request.post(BASE_URL, { data: requestBody, headers });
+    const response = await request.post(BASE_URL, { data: requestBody, headers });
 
   expect.soft(response.status()).toBe(StatusCodes.BAD_REQUEST);
 });
